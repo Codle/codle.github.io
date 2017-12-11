@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/post/pytorch-start-tutorial/</loc>
+    <loc>http://localhost:1313/post/pytorch-start-tutorial-1/</loc>
     <lastmod>2017-12-11T16:48:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -37,14 +37,14 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/pytorch/</loc>
+    <loc>http://localhost:1313/categories/pytorch/</loc>
     <lastmod>2017-12-11T16:48:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/pytorch/</loc>
+    <loc>http://localhost:1313/tags/pytorch/</loc>
     <lastmod>2017-12-11T16:48:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
