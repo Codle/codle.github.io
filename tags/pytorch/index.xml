@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pytorch on Codle - 无比冗杂的生活</title>
+    <link>http://localhost:1313/tags/pytorch/</link>
+    <description>Recent content in Pytorch on Codle - 无比冗杂的生活</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 11 Dec 2017 16:48:54 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pytorch 基础入门（一）</title>
+      <link>http://localhost:1313/post/pytorch-start-tutorial/</link>
+      <pubDate>Mon, 11 Dec 2017 16:48:54 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/pytorch-start-tutorial/</guid>
+      <description>本文参考自deeplearning.ai的在线课程deep learning specialization课程中的第二项课程中的Tensorflow教程，希望</description>
+    </item>
+    
+  </channel>
+</rss>
