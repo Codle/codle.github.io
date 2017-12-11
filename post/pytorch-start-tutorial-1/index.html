@@ -71,7 +71,7 @@
 
 <meta itemprop="datePublished" content="2017-12-11T16:48:54&#43;08:00" />
 <meta itemprop="dateModified" content="2017-12-11T16:48:54&#43;08:00" />
-<meta itemprop="wordCount" content="929">
+<meta itemprop="wordCount" content="989">
 
 
 
@@ -161,7 +161,7 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#库">库</a></li>
+<li><a href="#pytorch-库">Pytorch 库</a></li>
 <li><a href="#tensor">Tensor</a>
 <ul>
 <li><a href="#示例-损失函数">示例：损失函数</a></li>
@@ -169,6 +169,7 @@
 <li><a href="#variable">Variable</a>
 <ul>
 <li><a href="#示例-计算线性模型的代价函数">示例：计算线性模型的代价函数</a></li>
+<li><a href="#cuda-支持-可选">CUDA 支持（可选）</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -192,7 +193,7 @@
 <li>生成一个神经网络</li>
 </ul>
 
-<h1 id="库">库</h1>
+<h1 id="pytorch-库">Pytorch 库</h1>
 
 <p>首先，我们引入相关的库：</p>
 
@@ -315,6 +316,17 @@ print(cost)
 <pre><code>Variable containing:
 0.6139
 [torch.FloatTensor of size 1]
+</code></pre>
+
+<h2 id="cuda-支持-可选">CUDA 支持（可选）</h2>
+
+<p>如果你的电脑显卡能够支持 CUDA ，可以在 Pytorch 中使用 CUDA 来加速计算过程。</p>
+
+<pre><code class="language-python"># let us run this cell only if CUDA is available
+if torch.cuda.is_available():
+    x = x.cuda()
+    y = y.cuda()
+    x + y
 </code></pre>
 
     </div>
