@@ -1,0 +1,162 @@
+---
+title: "Pytorch 基础入门（二）"
+date: 2017-12-12T12:50:16+08:00
+draft: true
+tags: ["Pytorch", "Deep Learning"]
+categories: ["Pytorch 基础入门"]
+author: "Codle"
+---
+
+
+
+> 本文使用 Kaggle 初学者练习赛的数据集，在 [Kaggle - Digit Recognizer](https://www.kaggle.com/c/digit-recognizer) 你可以获取到数据集，并进行评分，查看学习效果如何。
+
+
+
+在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统内建函数，在这一文章中将试着构建一个简单的神经网络，对手写数字进行识别。
+
+
+
+# Pytorch 中的神经网络
+
+首先我们还是导入可能用到的库：
+
+```python
+import torch
+from torch.autograd import Variable
+import torch.nn as nn
+import torch.nn.functional as F
+```
+
+在 Pytorch 中，使用类的结构来构造一个神经网络，所有的类需要继承自 `nn.Module` 。在类中，我们最为需要的是完成两个步骤：1. 重写 `__init__(self)` ：写出神经网络将会用到的层；2. 完成 `forward(self, x)` 函数：写明每层之间是如何传递的，层间用何种激励函数。
+
+```python
+class Net(nn.Module):
+
+    def __init__(self):
+        super(Net, self).__init__()
+        self.hidden1 = nn.Linear(784, 300)
+        self.hidden2 = nn.Linear(300, 100)
+        self.out = nn.Linear(100, 10)
+        
+    def forward(self, x):
+        x = F.relu(self.hidden1(x))
+        x = F.relu(self.hidden2(x))
+        return self.out(x)
+
+net = Net()
+print(net)
+```
+
+Out:
+
+```
+Net (
+  (hidden1): Linear (784 -> 300)
+  (hidden2): Linear (300 -> 100)
+  (out): Linear (100 -> 10)
+)
+```
+
+
+
+上述代码中，构造了三层：输入层，隐藏层，输出层。其流程与Coursera中的大致一致：*LINEAR -> RELU -> LINEAR -> RELU -> LINEAR -> SOFTMAX* 。*SOFTMAX* 交由优化器完成，至此，我们便将神经网络模型创建好了。
+
+
+
+## 优化器
+
+优化器被用于优化神经网络中的代价函数，我们可以使用例如 SGD， Adam 等算法来进行优化我们的神经网络模型。
+
+```python
+adam_opt = torch.optim.Adam(net.parameters(), lr=0.01)
+```
+
+第一个参数需要传入网络的相关参数，后面参数为神经网络的超参数，例如：learn-rate，alpha，beta 等。
+
+优化参数的步骤：
+
+```python
+# 初始化梯度
+opt.zero_grad()
+# 当前输出值
+output = net(x)
+# 计算误差 loss_func = nn.CrossEntropyLoss() ,自带了Softmax
+loss = loss_func(output, y_b)
+# 反向传播
+loss.backward()
+# 应用梯度
+opt.step()
+```
+
+
+
+## 实战
+
+针对 Kaggle 的比赛，我们完成一个简单的神经网络来实现对手写数字的预测。
+
+```python
+import torch
+from torch.autograd import Variable
+import torch.nn as nn
+import torch.nn.functional as F
+import pandas as pd
+import numpy as np
+
+# 我们的模型
+class Net(nn.Module):
+
+    def __init__(self):
+        super(Net, self).__init__()
+        self.hidden1 = nn.Linear(784, 300)
+        self.hidden2 = nn.Linear(300, 100)
+        self.out = nn.Linear(100, 10)
+        
+    def forward(self, x):
+        x = F.relu(self.hidden1(x))
+        x = F.relu(self.hidden2(x))
+        return self.out(x)
+
+net = Net()
+
+# 从 csv 读取数据
+train_df = pd.read_csv('./train.csv')
+train = np.array(train_df)
+X = train[:, 1:]
+Y = train[:, 0]
+
+# 使用 pytorch 提供的数据分批包来对数据分批
+# 用处可以查 在神经网络中 batch 的用处
+import torch.utils.data as Data
+torch_dataset = Data.TensorDataset(data_tensor=X, target_tensor=Y)
+loader = Data.DataLoader(dataset=torch_dataset, batch_size=64, shuffle=True)
+
+# 优化器和代价函数，这里使用 RMSprop 你也可以换成 SGD，Adam 等
+opt = torch.optim.RMSprop(net.parameters(), lr=0.0001)
+loss_func = nn.CrossEntropyLoss()
+
+# 训练模型，对整个数据训练10次
+for epoch in range(10):
+    for step, (x, y) in enumerate(loader):
+        x_b = Variable(x)
+        y_b = Variable(y)
+        opt.zero_grad()
+        output = net(x_b)
+        loss = loss_func(output, y_b)
+        loss.backward()
+        opt.step()
+        
+# 读取测试集合
+test_df = pd.read_csv('./test.csv')
+test = np.array(test_df)
+X_test = torch.from_numpy(test).float()
+
+# 输出预测值
+predict = net(Variable(X_test))
+predict = F.softmax(predict)
+
+# 取出 one-hot 中的索引值，即我们所要的答案
+prediction = torch.max(predict, 1)[1]
+```
+
+将数据整理后提交到 Kaggle 中，获得了 0.97142 的分数，排名在 1235 左右。对于一个简单的神经网络而言已经非常不错了。后续会完成一个较为复杂且排名更加靠前的版本。

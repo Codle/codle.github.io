@@ -44,7 +44,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/pytorch/</loc>
+    <loc>http://localhost:1313/categories/pytorch-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2017-12-11T16:48:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
