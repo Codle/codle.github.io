@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Codle - 无比冗杂的生活</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 11 Dec 2017 16:48:54 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 Dec 2017 12:50:16 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Deep Learning</title>
       <link>http://localhost:1313/tags/deep-learning/</link>
-      <pubDate>Mon, 11 Dec 2017 16:48:54 +0800</pubDate>
+      <pubDate>Tue, 12 Dec 2017 12:50:16 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/deep-learning/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>Pytorch</title>
       <link>http://localhost:1313/tags/pytorch/</link>
-      <pubDate>Mon, 11 Dec 2017 16:48:54 +0800</pubDate>
+      <pubDate>Tue, 12 Dec 2017 12:50:16 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/pytorch/</guid>
       <description></description>

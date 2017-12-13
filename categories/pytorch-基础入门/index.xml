@@ -6,10 +6,19 @@
     <description>Recent content in Pytorch 基础入门 on Codle - 无比冗杂的生活</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 11 Dec 2017 16:48:54 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 Dec 2017 12:50:16 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/categories/pytorch-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pytorch 基础入门（二）</title>
+      <link>http://localhost:1313/post/pytorch-start-tutorial-2/</link>
+      <pubDate>Tue, 12 Dec 2017 12:50:16 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/pytorch-start-tutorial-2/</guid>
+      <description>本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。 在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统</description>
+    </item>
     
     <item>
       <title>Pytorch 基础入门（一）</title>

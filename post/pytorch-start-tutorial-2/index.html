@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Pytorch 基础入门（二） - Codle - 无比冗杂的生活</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Codle" />
+  <meta name="description" content="本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。 在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统" />
+
+  <meta name="keywords" content="Deep Learning, NLP, Machine Learning" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.31.1" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/pytorch-start-tutorial-2/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<link href="/dist/even.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+<meta property="og:title" content="Pytorch 基础入门（二）" />
+<meta property="og:description" content="本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。 在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/pytorch-start-tutorial-2/" />
+
+
+
+<meta property="article:published_time" content="2017-12-12T12:50:16&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-12-12T12:50:16&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Pytorch 基础入门（二）">
+<meta itemprop="description" content="本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。 在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统">
+
+
+<meta itemprop="datePublished" content="2017-12-12T12:50:16&#43;08:00" />
+<meta itemprop="dateModified" content="2017-12-12T12:50:16&#43;08:00" />
+<meta itemprop="wordCount" content="886">
+
+
+
+<meta itemprop="keywords" content="Pytorch,Deep Learning," />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Pytorch 基础入门（二）"/>
+<meta name="twitter:description" content="本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。 在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Codle</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">目录</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Codle</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">目录</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Pytorch 基础入门（二）</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-12-12 </span>
+        <div class="post-category">
+            
+              <a href="/categories/pytorch-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"> Pytorch 基础入门 </a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#pytorch-中的神经网络">Pytorch 中的神经网络</a>
+<ul>
+<li><a href="#优化器">优化器</a></li>
+<li><a href="#实战">实战</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<blockquote>
+<p>本文使用 Kaggle 初学者练习赛的数据集，在 <a href="https://www.kaggle.com/c/digit-recognizer">Kaggle - Digit Recognizer</a> 你可以获取到数据集，并进行评分，查看学习效果如何。</p>
+</blockquote>
+
+<p>在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统内建函数，在这一文章中将试着构建一个简单的神经网络，对手写数字进行识别。</p>
+
+<h1 id="pytorch-中的神经网络">Pytorch 中的神经网络</h1>
+
+<p>首先我们还是导入可能用到的库：</p>
+
+<pre><code class="language-python">import torch
+from torch.autograd import Variable
+import torch.nn as nn
+import torch.nn.functional as F
+</code></pre>
+
+<p>在 Pytorch 中，使用类的结构来构造一个神经网络，所有的类需要继承自 <code>nn.Module</code> 。在类中，我们最为需要的是完成两个步骤：1. 重写 <code>__init__(self)</code> ：写出神经网络将会用到的层；2. 完成 <code>forward(self, x)</code> 函数：写明每层之间是如何传递的，层间用何种激励函数。</p>
+
+<pre><code class="language-python">class Net(nn.Module):
+
+    def __init__(self):
+        super(Net, self).__init__()
+        self.hidden1 = nn.Linear(784, 300)
+        self.hidden2 = nn.Linear(300, 100)
+        self.out = nn.Linear(100, 10)
+        
+    def forward(self, x):
+        x = F.relu(self.hidden1(x))
+        x = F.relu(self.hidden2(x))
+        return self.out(x)
+
+net = Net()
+print(net)
+</code></pre>
+
+<p>Out:</p>
+
+<pre><code>Net (
+  (hidden1): Linear (784 -&gt; 300)
+  (hidden2): Linear (300 -&gt; 100)
+  (out): Linear (100 -&gt; 10)
+)
+</code></pre>
+
+<p>上述代码中，构造了三层：输入层，隐藏层，输出层。其流程与Coursera中的大致一致：<em>LINEAR -&gt; RELU -&gt; LINEAR -&gt; RELU -&gt; LINEAR -&gt; SOFTMAX</em> 。<em>SOFTMAX</em> 交由优化器完成，至此，我们便将神经网络模型创建好了。</p>
+
+<h2 id="优化器">优化器</h2>
+
+<p>优化器被用于优化神经网络中的代价函数，我们可以使用例如 SGD， Adam 等算法来进行优化我们的神经网络模型。</p>
+
+<pre><code class="language-python">adam_opt = torch.optim.Adam(net.parameters(), lr=0.01)
+</code></pre>
+
+<p>第一个参数需要传入网络的相关参数，后面参数为神经网络的超参数，例如：learn-rate，alpha，beta 等。</p>
+
+<p>优化参数的步骤：</p>
+
+<pre><code class="language-python"># 初始化梯度
+opt.zero_grad()
+# 当前输出值
+output = net(x)
+# 计算误差 loss_func = nn.CrossEntropyLoss() ,自带了Softmax
+loss = loss_func(output, y_b)
+# 反向传播
+loss.backward()
+# 应用梯度
+opt.step()
+</code></pre>
+
+<h2 id="实战">实战</h2>
+
+<p>针对 Kaggle 的比赛，我们完成一个简单的神经网络来实现对手写数字的预测。</p>
+
+<pre><code class="language-python">import torch
+from torch.autograd import Variable
+import torch.nn as nn
+import torch.nn.functional as F
+import pandas as pd
+import numpy as np
+
+# 我们的模型
+class Net(nn.Module):
+
+    def __init__(self):
+        super(Net, self).__init__()
+        self.hidden1 = nn.Linear(784, 300)
+        self.hidden2 = nn.Linear(300, 100)
+        self.out = nn.Linear(100, 10)
+        
+    def forward(self, x):
+        x = F.relu(self.hidden1(x))
+        x = F.relu(self.hidden2(x))
+        return self.out(x)
+
+net = Net()
+
+# 从 csv 读取数据
+train_df = pd.read_csv('./train.csv')
+train = np.array(train_df)
+X = train[:, 1:]
+Y = train[:, 0]
+
+# 使用 pytorch 提供的数据分批包来对数据分批
+# 用处可以查 在神经网络中 batch 的用处
+import torch.utils.data as Data
+torch_dataset = Data.TensorDataset(data_tensor=X, target_tensor=Y)
+loader = Data.DataLoader(dataset=torch_dataset, batch_size=64, shuffle=True)
+
+# 优化器和代价函数，这里使用 RMSprop 你也可以换成 SGD，Adam 等
+opt = torch.optim.RMSprop(net.parameters(), lr=0.0001)
+loss_func = nn.CrossEntropyLoss()
+
+# 训练模型，对整个数据训练10次
+for epoch in range(10):
+    for step, (x, y) in enumerate(loader):
+        x_b = Variable(x)
+        y_b = Variable(y)
+        opt.zero_grad()
+        output = net(x_b)
+        loss = loss_func(output, y_b)
+        loss.backward()
+        opt.step()
+        
+# 读取测试集合
+test_df = pd.read_csv('./test.csv')
+test = np.array(test_df)
+X_test = torch.from_numpy(test).float()
+
+# 输出预测值
+predict = net(Variable(X_test))
+predict = F.softmax(predict)
+
+# 取出 one-hot 中的索引值，即我们所要的答案
+prediction = torch.max(predict, 1)[1]
+</code></pre>
+
+<p>将数据整理后提交到 Kaggle 中，获得了 0.97142 的分数，排名在 1235 左右。对于一个简单的神经网络而言已经非常不错了。后续会完成一个较为复杂且排名更加靠前的版本。</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Codle</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2017-12-12</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/pytorch/">Pytorch</a>
+          
+          <a href="/tags/deep-learning/">Deep Learning</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/pytorch-start-tutorial-1/">
+            <span class="next-text nav-default">Pytorch 基础入门（一）</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:codleyin@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/CodleYin/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/codle/" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/323327275" class="iconfont icon-weibo" title="weibo"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy; 
+    2017
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Codle</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=2.7.0"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+  <script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
+
+
+
+
+</body>
+</html>
