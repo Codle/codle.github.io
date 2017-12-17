@@ -17,7 +17,10 @@
 
 
 <meta name="author" content="Codle" />
-  <meta name="description" content="本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。 在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统" />
+  <meta name="description" content=" 本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。
+ 在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统内建函数，在这一文章中将试着构建一个简单的神经网络，对手写数字进行识别。
+
+" />
 
   <meta name="keywords" content="Deep Learning, NLP, Machine Learning" />
 
@@ -45,7 +48,13 @@
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 <meta property="og:title" content="Pytorch 基础入门（二）" />
-<meta property="og:description" content="本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。 在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统" />
+<meta property="og:description" content="
+本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。
+
+
+在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统内建函数，在这一文章中将试着构建一个简单的神经网络，对手写数字进行识别。
+
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/pytorch-start-tutorial-2/" />
 
@@ -66,18 +75,30 @@
 
 
 <meta itemprop="name" content="Pytorch 基础入门（二）">
-<meta itemprop="description" content="本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。 在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统">
+<meta itemprop="description" content="
+本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。
+
+
+在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统内建函数，在这一文章中将试着构建一个简单的神经网络，对手写数字进行识别。
+
+">
 
 
 <meta itemprop="datePublished" content="2017-12-12T12:50:16&#43;08:00" />
 <meta itemprop="dateModified" content="2017-12-12T12:50:16&#43;08:00" />
-<meta itemprop="wordCount" content="886">
+<meta itemprop="wordCount" content="922">
 
 
 
 <meta itemprop="keywords" content="Pytorch,Deep Learning," />
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Pytorch 基础入门（二）"/>
-<meta name="twitter:description" content="本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。 在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统"/>
+<meta name="twitter:description" content="
+本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。
+
+
+在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统内建函数，在这一文章中将试着构建一个简单的神经网络，对手写数字进行识别。
+
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -92,7 +113,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">Codle</a>
+    <a href="/" class="logo"><img src="http://oog6lcve1.bkt.clouddn.com/imgs/blog/logo.png" alt="codle.net" width="50%" height="50%"></a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -118,7 +139,7 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">Codle</a>
+  <a href="/" class="logo"><img src="http://oog6lcve1.bkt.clouddn.com/imgs/blog/logo.png" alt="codle.net" width="50%" height="50%"></a>
 </div>
 
 <nav class="site-navbar">
@@ -177,13 +198,13 @@
 
     
     <div class="post-content">
-      
-
-<blockquote>
+      <blockquote>
 <p>本文使用 Kaggle 初学者练习赛的数据集，在 <a href="https://www.kaggle.com/c/digit-recognizer">Kaggle - Digit Recognizer</a> 你可以获取到数据集，并进行评分，查看学习效果如何。</p>
 </blockquote>
 
 <p>在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统内建函数，在这一文章中将试着构建一个简单的神经网络，对手写数字进行识别。</p>
+
+<p></p>
 
 <h1 id="pytorch-中的神经网络">Pytorch 中的神经网络</h1>
 
@@ -316,7 +337,6 @@ prediction = torch.max(predict, 1)[1]
 </code></pre>
 
 <p>将数据整理后提交到 Kaggle 中，获得了 0.97142 的分数，排名在 1235 左右。对于一个简单的神经网络而言已经非常不错了。后续会完成一个较为复杂且排名更加靠前的版本。</p>
-
     </div>
 
     

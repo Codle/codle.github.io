@@ -27,7 +27,13 @@
       <pubDate>Tue, 12 Dec 2017 12:50:16 +0800</pubDate>
       
       <guid>http://localhost:1313/post/pytorch-start-tutorial-2/</guid>
-      <description>本文使用 Kaggle 初学者练习赛的数据集，在 Kaggle - Digit Recognizer 你可以获取到数据集，并进行评分，查看学习效果如何。 在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文使用 Kaggle 初学者练习赛的数据集，在 &lt;a href=&#34;https://www.kaggle.com/c/digit-recognizer&#34;&gt;Kaggle - Digit Recognizer&lt;/a&gt; 你可以获取到数据集，并进行评分，查看学习效果如何。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统内建函数，在这一文章中将试着构建一个简单的神经网络，对手写数字进行识别。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -36,7 +42,11 @@
       <pubDate>Mon, 11 Dec 2017 16:48:54 +0800</pubDate>
       
       <guid>http://localhost:1313/post/pytorch-start-tutorial-1/</guid>
-      <description>本文参考自deeplearning.ai的在线课程deep learning specialization课程中的第二项课程中的Tensorflow教程，希望</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文参考自deeplearning.ai的在线课程deep learning specialization课程中的第二项课程中的Tensorflow教程，希望能够对使用Pytorch来进行研究深度学习的同学有所帮助。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
