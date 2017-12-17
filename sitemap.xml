@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://localhost:1313/about/</loc>
+    <lastmod>2017-12-11T22:08:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/post/pytorch-start-tutorial-2/</loc>
     <lastmod>2017-12-12T12:50:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -24,7 +31,7 @@
   
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2017-12-12T12:50:16+08:00</lastmod>
+    <lastmod>2017-12-11T22:08:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
