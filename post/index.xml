@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Codle.net 蜀ICP备17002933号-2</copyright>
-    <lastBuildDate>Tue, 12 Dec 2017 12:50:16 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 08 Feb 2018 14:44:40 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>序列模型：前言</title>
+      <link>http://localhost:1313/post/sequence-model-introduction/</link>
+      <pubDate>Thu, 08 Feb 2018 14:44:40 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/sequence-model-introduction/</guid>
+      <description>前言 DeepLearning.ai 终于开放了最后一节课《序列模型》，序列模型广泛应用于机器翻译、语音识别等方面。根据课程会完成相关的笔记博客，本篇为第一篇，介绍一些基础</description>
+    </item>
     
     <item>
       <title>Pytorch 基础入门（二）</title>
