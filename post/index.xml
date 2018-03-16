@@ -12,7 +12,26 @@
     
     
     <item>
-      <title>Pytorch 基础入门（一）</title>
+      <title>PyTorch 中可变长序列的处理</title>
+      <link>https://codle.net/post/how-to-deal-with-variable-length-sequences-in-pytorch/</link>
+      <pubDate>Fri, 16 Mar 2018 16:21:08 +0800</pubDate>
+      
+      <guid>https://codle.net/post/how-to-deal-with-variable-length-sequences-in-pytorch/</guid>
+      <description>最近在做文本情感分析方面的研究，主要使用了 PyTorch 来做实验。在针对文本的处理过程中，遇见了文本长度不唯一的问题，在此主要讲 PyTorch 中的解决方法。
+写作时的系统环境：
+ PyTorch ：0.3.1 Python ：3.6.2  问题来源 情感分析采用神经网络的方法和文本分类比较类似。其工作流程为输入文本，输出情感类别。对比文本分类和图片分类，图片在进行处理前都会将图片缩放为尺寸相当，这样保证了输入与输出的尺寸在一开始就被确定。而文本，一般以句子为一个输入，每个词对应一个 LSTM 或者 RNN 单元，然而当多个样本进行训练时，句子长度不一给模型训练带来了极大麻烦。
+解决方法 解决思路 通常情况下，我们会考虑使用 padding 的方法来统一序列长度。例如，现在有两句话：“Look at the cat”和 “OK&amp;rdquo;，第一句话的长度为 4，第二句为 1，那么我们就考虑将第二句话后面补 0 使得其长度达到 4。此时，句子长度便统一了。
+这种方法有个明显的问题：如果训练集存在一个非常长的句子，而大部分句子都非常短小，那么整个训练集合都会补充相当数量的 0。此时再进行神经网络训练的时候，输入矩阵非常稀疏，会导致训练效果和训练效率都变得很低。
+为了解决这个问题，PyTorch 中采用了一种打包解包的方法。
+如图所示，将填充后的数据进行打包（重新压缩），data 存储拼接后的字符串，batch_sizes 保存原始串的长度。其实就是采用了一个结构体，一部分存储全部的数据，一部分存储每个串的长度，然后根据串长度取回原来的序列，只是 PyTorch 中实现了许多我们可以用到的方法，而不用自己手动实现了。
+PyTorch 实现 在 Pytorch 中，提供了两个方法torch.nn.utils.rnn.pack_padded_sequence()和torch.nn.utils.rnn.pad_packed_sequence() （以下简写为 pack_padded_sequence() 和 pad_packed_sequence() 。
+pack_padded_sequence 文档 原型：
+torch.nn.utils.rnn.pack_padded_sequence(input, lengths, batch_first=False)  打包一个填充过的可变长度序列的 Variable 。
+输入应该是 TxBx* ，其中 T 是最长的序列的长度（等同于lengths[0]），B 是 batch 大小，而 * 可以是任意数字的维度 （包括 0）。如果 batch_first 为 True ，那么输入就应该是 BxTx* 。</description>
+    </item>
+    
+    <item>
+      <title>PyTorch 基础入门（一）</title>
       <link>https://codle.net/post/pytorch-start-tutorial-1/</link>
       <pubDate>Mon, 11 Dec 2017 16:48:54 +0800</pubDate>
       

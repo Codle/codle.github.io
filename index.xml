@@ -10,7 +10,197 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Pytorch 基础入门（一）</title>
+      <title>PyTorch 中可变长序列的处理</title>
+      <link>https://codle.net/post/how-to-deal-with-variable-length-sequences-in-pytorch/</link>
+      <pubDate>Fri, 16 Mar 2018 16:21:08 +0800</pubDate>
+      
+      <guid>https://codle.net/post/how-to-deal-with-variable-length-sequences-in-pytorch/</guid>
+      <description>
+
+&lt;p&gt;最近在做文本情感分析方面的研究，主要使用了 PyTorch 来做实验。在针对文本的处理过程中，遇见了文本长度不唯一的问题，在此主要讲 PyTorch 中的解决方法。&lt;/p&gt;
+
+&lt;p&gt;写作时的系统环境：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PyTorch ：0.3.1&lt;/li&gt;
+&lt;li&gt;Python ：3.6.2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;问题来源&#34;&gt;问题来源&lt;/h2&gt;
+
+&lt;p&gt;情感分析采用神经网络的方法和文本分类比较类似。其工作流程为输入文本，输出情感类别。对比文本分类和图片分类，图片在进行处理前都会将图片缩放为尺寸相当，这样保证了输入与输出的尺寸在一开始就被确定。而文本，一般以句子为一个输入，每个词对应一个 LSTM 或者 RNN 单元，然而当多个样本进行训练时，句子长度不一给模型训练带来了极大麻烦。&lt;/p&gt;
+
+&lt;h2 id=&#34;解决方法&#34;&gt;解决方法&lt;/h2&gt;
+
+&lt;h3 id=&#34;解决思路&#34;&gt;解决思路&lt;/h3&gt;
+
+&lt;p&gt;通常情况下，我们会考虑使用 padding 的方法来统一序列长度。例如，现在有两句话：“Look at the cat”和 “OK&amp;rdquo;，第一句话的长度为 4，第二句为 1，那么我们就考虑将第二句话后面补 0 使得其长度达到 4。此时，句子长度便统一了。&lt;/p&gt;
+
+&lt;p&gt;这种方法有个明显的问题：如果训练集存在一个非常长的句子，而大部分句子都非常短小，那么整个训练集合都会补充相当数量的 0。此时再进行神经网络训练的时候，输入矩阵非常稀疏，会导致训练效果和训练效率都变得很低。&lt;/p&gt;
+
+&lt;p&gt;为了解决这个问题，PyTorch 中采用了一种打包解包的方法。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://upload-images.jianshu.io/upload_images/2397007-93b28bb8d6948571.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如图所示，将填充后的数据进行打包（重新压缩），data 存储拼接后的字符串，batch_sizes 保存原始串的长度。其实就是采用了一个结构体，一部分存储全部的数据，一部分存储每个串的长度，然后根据串长度取回原来的序列，只是 PyTorch 中实现了许多我们可以用到的方法，而不用自己手动实现了。&lt;/p&gt;
+
+&lt;h3 id=&#34;pytorch-实现&#34;&gt;PyTorch 实现&lt;/h3&gt;
+
+&lt;p&gt;在 Pytorch 中，提供了两个方法&lt;code&gt;torch.nn.utils.rnn.pack_padded_sequence()&lt;/code&gt;和&lt;code&gt;torch.nn.utils.rnn.pad_packed_sequence()&lt;/code&gt; （以下简写为 &lt;code&gt;pack_padded_sequence()&lt;/code&gt; 和 &lt;code&gt;pad_packed_sequence()&lt;/code&gt; 。&lt;/p&gt;
+
+&lt;h4 id=&#34;pack-padded-sequence-文档&#34;&gt;pack_padded_sequence 文档&lt;/h4&gt;
+
+&lt;p&gt;原型：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;torch.nn.utils.rnn.pack_padded_sequence(input, lengths, batch_first=False)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打包一个填充过的可变长度序列的 Variable 。&lt;/p&gt;
+
+&lt;p&gt;输入应该是 TxBx* ，其中 T 是最长的序列的长度（等同于lengths[0]），B 是 batch 大小，而 * 可以是任意数字的维度 （包括 0）。如果 batch_first 为 True ，那么输入就应该是 BxTx* 。&lt;/p&gt;
+
+&lt;p&gt;序列应该被按照序列的长度呈降序排列。例如： input[:,0] 应该是最长的序列，而且 input[:,B-1] 是最短的。&lt;/p&gt;
+
+&lt;p&gt;参数：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;input (Variable) – 经过填充的批量可变长度序列。&lt;/li&gt;
+&lt;li&gt;lengths (list[int]) – 储存当前批次中的每个可变长度序列的长度的 list 对象。&lt;/li&gt;
+&lt;li&gt;batch_first (bool, optional) – 如果为 True，输入则应该是 BxTx* 格式。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;返回值:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;一个 PackedSequence 对象&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;pad-packed-sequence-文档&#34;&gt;pad_packed_sequence 文档&lt;/h4&gt;
+
+&lt;p&gt;原型：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;torch.nn.utils.rnn.pad_packed_sequence(sequence, batch_first=False, padding_value=0.0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;填充一批打包后的可变长度序列。&lt;/p&gt;
+
+&lt;p&gt;是 pack_padded_sequence() 的逆操作。&lt;/p&gt;
+
+&lt;p&gt;返回值 Variable 的数据格式为 TxBx* ，其中 T 是最长序列的长度， B 是 batch 大小。如果 batch_first 为 True，数据会被转为 BxTx* 格式。&lt;/p&gt;
+
+&lt;p&gt;当前批次中的元素会被按照长度进行排序。&lt;/p&gt;
+
+&lt;p&gt;参数:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;sequence (PackedSequence) – 准备填充的批量元素。&lt;/li&gt;
+&lt;li&gt;batch_first (bool, optional) – 如果为 True，输出会是 BxTx* 格式。&lt;/li&gt;
+&lt;li&gt;padding_value (float, optional) – 填充的元素。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;返回值:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;填充序列的 Variable 元组以及包含当前批次中序列长度的 list 对象。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;使用方法&#34;&gt;使用方法&lt;/h3&gt;
+
+&lt;p&gt;从文档中可以看出，当我们将数据填充整齐后，可以使用&lt;code&gt;pack_padded_sequence()&lt;/code&gt; 和&lt;code&gt;pad_packed_sequence()&lt;/code&gt; 方法可以将数据进行打包和解包（填充这一步暂且需要自己手动做）。&lt;/p&gt;
+
+&lt;p&gt;打包后得到 PackedSequence 对象，其主要由两个部分组成：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;所有序列的数据&lt;/li&gt;
+&lt;li&gt;每个序列的原始长度&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;针对 PackedSequence 对象，我们可以使用很多方法而不需要去解包（解包这一步会比较慢）。PackedSequence 对象可以被当作输入用在 PyTorch 中的大部分模块中。&lt;/p&gt;
+
+&lt;h3 id=&#34;尚未实装的方法&#34;&gt;尚未实装的方法&lt;/h3&gt;
+
+&lt;p&gt;本方法来源于 &lt;a href=&#34;https://discuss.pytorch.org/t/simple-working-example-how-to-use-packing-for-variable-length-sequence-inputs-for-rnn/2120/24&#34; target=&#34;_blank&#34;&gt;PyTorch 官方论坛&lt;/a&gt; ，因为所用版本还未发布所以没有测试。文中指出在 PyTorch 0.4 版本中增加了新的方法来实现 Padding 和 Packing。&lt;/p&gt;
+
+&lt;p&gt;序列打包：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; import torch
+&amp;gt;&amp;gt;&amp;gt; import torch.nn.utils.rnn as rnn_utils
+&amp;gt;&amp;gt;&amp;gt; a = torch.Tensor([1, 2, 3])
+&amp;gt;&amp;gt;&amp;gt; b = torch.Tensor([4, 5])
+&amp;gt;&amp;gt;&amp;gt; c = torch.Tensor([6])
+&amp;gt;&amp;gt;&amp;gt; packed = rnn_utils.pack_sequence([a, b, c])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;序列解包：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; import torch
+&amp;gt;&amp;gt;&amp;gt; import torch.nn.utils.rnn as rnn_utils
+&amp;gt;&amp;gt;&amp;gt; a = torch.Tensor([1, 2, 3])
+&amp;gt;&amp;gt;&amp;gt; b = torch.Tensor([4, 5])
+&amp;gt;&amp;gt;&amp;gt; c = torch.Tensor([6])
+&amp;gt;&amp;gt;&amp;gt; rnn_utils.pad_sequence([a, b, c], batch_first=True)
+
+ 1  2  3
+ 4  5  0
+ 6  0  0
+[torch.FloatTensor of size (3,3)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+
+&lt;p&gt;在 PyTorch 中处理可变长度序列的基本流程：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;将序列填充，并按照原始长度降序排列；&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;pack_padded_sequence()&lt;/code&gt; 对序列进行打包；&lt;/li&gt;
+&lt;li&gt;使用 PackedSequence 对象继续编写程序。&lt;/li&gt;
+&lt;li&gt;（可选）如果需要还原，则使用 &lt;code&gt;pad_packed_sequence()&lt;/code&gt; 方法。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://discuss.pytorch.org/t/simple-working-example-how-to-use-packing-for-variable-length-sequence-inputs-for-rnn/&#34; target=&#34;_blank&#34;&gt;Simple working example how to use packing for variable-length sequence inputs for rnn, &lt;em&gt;PyTorch Discuss&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/34418001&#34; target=&#34;_blank&#34;&gt;忆臻, pytorch中如何处理RNN输入变长序列padding, &lt;em&gt;知乎&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cnblogs.com/lindaxin/p/8052043.html&#34; target=&#34;_blank&#34;&gt;深度学习1, pytorch对可变长度序列的处理, &lt;em&gt;博客园&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/28472545&#34; target=&#34;_blank&#34;&gt;赵普, pytorch RNN 变长输入 padding, &lt;em&gt;知乎&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mp.weixin.qq.com/s?__biz=MzAwNDI4ODcxNA==&amp;amp;mid=2652245658&amp;amp;idx=1&amp;amp;sn=03c63ad0e0657e5272ea2e3c7e346521&amp;amp;scene=0#wechat_redirect&#34; target=&#34;_blank&#34;&gt;Thomas Wolf, 如何用pyTorch改造基于Keras的MIT情感理解模型, &lt;em&gt;人工智能头条&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>情感分析</title>
+      <link>https://codle.net/project/sentiment-ananalysis/</link>
+      <pubDate>Fri, 16 Mar 2018 13:51:00 +0800</pubDate>
+      
+      <guid>https://codle.net/project/sentiment-ananalysis/</guid>
+      <description>
+
+&lt;p&gt;本项目使用 PyTorch 实现文本的情感分类，包括 LSTM 模型等，允许使用者自定义模型和词典。&lt;/p&gt;
+
+&lt;p&gt;项目地址：6月8日后贴出。&lt;/p&gt;
+
+&lt;h2 id=&#34;下载-安装&#34;&gt;下载&amp;amp;安装&lt;/h2&gt;
+
+&lt;p&gt;暂无&lt;/p&gt;
+
+&lt;h2 id=&#34;依赖项&#34;&gt;依赖项&lt;/h2&gt;
+
+&lt;p&gt;暂无&lt;/p&gt;
+
+&lt;h2 id=&#34;使用方法&#34;&gt;使用方法&lt;/h2&gt;
+
+&lt;p&gt;暂无&lt;/p&gt;
+
+&lt;h2 id=&#34;许可&#34;&gt;许可&lt;/h2&gt;
+
+&lt;p&gt;本项目使用 MIT 协议。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PyTorch 基础入门（一）</title>
       <link>https://codle.net/post/pytorch-start-tutorial-1/</link>
       <pubDate>Mon, 11 Dec 2017 16:48:54 +0800</pubDate>
       

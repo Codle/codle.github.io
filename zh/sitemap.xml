@@ -5,6 +5,24 @@
     
     <url>
     
+      <loc>https://codle.net/post/how-to-deal-with-variable-length-sequences-in-pytorch/</loc>
+      <lastmod>2018-03-16T16:21:08+08:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://codle.net/project/sentiment-ananalysis/</loc>
+      <lastmod>2018-03-16T13:51:00+08:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://codle.net/post/pytorch-start-tutorial-1/</loc>
       <lastmod>2017-12-11T16:48:54+08:00</lastmod>
     </url>
@@ -41,6 +59,15 @@
     
     <url>
     
+      <loc>https://codle.net/project/</loc>
+      <lastmod>2017-01-01T00:00:00+08:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <xhtml:link rel="alternate" href="https://codle.net/categories/" hreflang="zh"/>
       <xhtml:link rel="alternate" href="https://codle.net/en/categories/" hreflang="en"/>
     
@@ -66,6 +93,16 @@
     
     <url>
     
+      <loc>https://codle.net/tags/nlp/</loc>
+      <lastmod>2018-03-16T16:21:08+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <xhtml:link rel="alternate" href="https://codle.net/publication_types/" hreflang="zh"/>
       <xhtml:link rel="alternate" href="https://codle.net/en/publication_types/" hreflang="en"/>
     
@@ -79,7 +116,7 @@
     <url>
     
       <loc>https://codle.net/tags/pytorch/</loc>
-      <lastmod>2017-12-11T16:48:54+08:00</lastmod>
+      <lastmod>2018-03-16T16:21:08+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -89,7 +126,17 @@
     <url>
     
       <loc>https://codle.net/categories/pytorch/</loc>
-      <lastmod>2017-12-11T16:48:54+08:00</lastmod>
+      <lastmod>2018-03-16T16:21:08+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://codle.net/tags/sentiment-analysis/</loc>
+      <lastmod>2018-03-16T13:51:00+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -102,7 +149,7 @@
       <xhtml:link rel="alternate" href="https://codle.net/en/tags/" hreflang="en"/>
     
       <loc>https://codle.net/tags/</loc>
-      <lastmod>2017-12-11T16:48:54+08:00</lastmod>
+      <lastmod>2018-03-16T16:21:08+08:00</lastmod>
       <priority>0</priority>
     </url>
     

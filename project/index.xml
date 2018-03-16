@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Codle</title>
+    <link>https://codle.net/project/</link>
+    <description>Recent content in Projects on Codle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2018 蜀ICP备17002933号-2</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://codle.net/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>情感分析</title>
+      <link>https://codle.net/project/sentiment-ananalysis/</link>
+      <pubDate>Fri, 16 Mar 2018 13:51:00 +0800</pubDate>
+      
+      <guid>https://codle.net/project/sentiment-ananalysis/</guid>
+      <description>本项目使用 PyTorch 实现文本的情感分类，包括 LSTM 模型等，允许使用者自定义模型和词典。
+项目地址：6月8日后贴出。
+下载&amp;amp;安装 暂无
+依赖项 暂无
+使用方法 暂无
+许可 本项目使用 MIT 协议。</description>
+    </item>
+    
+  </channel>
+</rss>
