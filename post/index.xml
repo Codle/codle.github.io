@@ -1,47 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Codle - 无比冗杂的生活</title>
-    <link>http://localhost:1313/post/</link>
-    <description>Recent content in Posts on Codle - 无比冗杂的生活</description>
+    <title>Posts on Codle</title>
+    <link>https://codle.net/post/</link>
+    <description>Recent content in Posts on Codle</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Codle.net 蜀ICP备17002933号-2</copyright>
-    <lastBuildDate>Thu, 08 Feb 2018 14:44:40 +0800</lastBuildDate>
+    <copyright>&amp;copy; 2018 蜀ICP备17002933号-2</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://codle.net/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>序列模型：前言</title>
-      <link>http://localhost:1313/post/sequence-model-introduction/</link>
-      <pubDate>Thu, 08 Feb 2018 14:44:40 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/sequence-model-introduction/</guid>
-      <description>前言 DeepLearning.ai 终于开放了最后一节课《序列模型》，序列模型广泛应用于机器翻译、语音识别等方面。根据课程会完成相关的笔记博客，本篇为第一篇，介绍一些基础</description>
-    </item>
-    
-    <item>
-      <title>Pytorch 基础入门（二）</title>
-      <link>http://localhost:1313/post/pytorch-start-tutorial-2/</link>
-      <pubDate>Tue, 12 Dec 2017 12:50:16 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/pytorch-start-tutorial-2/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;本文使用 Kaggle 初学者练习赛的数据集，在 &lt;a href=&#34;https://www.kaggle.com/c/digit-recognizer&#34;&gt;Kaggle - Digit Recognizer&lt;/a&gt; 你可以获取到数据集，并进行评分，查看学习效果如何。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;在上一文章中，主要讲解了 Pytorch 中的基础数据单元和系统内建函数，在这一文章中将试着构建一个简单的神经网络，对手写数字进行识别。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>Pytorch 基础入门（一）</title>
-      <link>http://localhost:1313/post/pytorch-start-tutorial-1/</link>
+      <link>https://codle.net/post/pytorch-start-tutorial-1/</link>
       <pubDate>Mon, 11 Dec 2017 16:48:54 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/pytorch-start-tutorial-1/</guid>
+      <guid>https://codle.net/post/pytorch-start-tutorial-1/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本文参考自deeplearning.ai的在线课程deep learning specialization课程中的第二项课程中的Tensorflow教程，希望能够对使用Pytorch来进行研究深度学习的同学有所帮助。&lt;/p&gt;
 &lt;/blockquote&gt;

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+    
+    
+    <url>
+    
+      <loc>https://codle.net/post/pytorch-start-tutorial-1/</loc>
+      <lastmod>2017-12-11T16:48:54+08:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://codle.net/publication/</loc>
+      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://codle.net/talk/</loc>
+      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://codle.net/post/</loc>
+      <lastmod>2017-01-01T00:00:00+08:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <xhtml:link rel="alternate" href="https://codle.net/categories/" hreflang="zh"/>
+      <xhtml:link rel="alternate" href="https://codle.net/en/categories/" hreflang="en"/>
+    
+      <loc>https://codle.net/categories/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <xhtml:link rel="alternate" href="https://codle.net/" hreflang="zh"/>
+      <xhtml:link rel="alternate" href="https://codle.net/en/" hreflang="en"/>
+    
+      <loc>https://codle.net/</loc>
+      <lastmod>2016-04-20T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <xhtml:link rel="alternate" href="https://codle.net/publication_types/" hreflang="zh"/>
+      <xhtml:link rel="alternate" href="https://codle.net/en/publication_types/" hreflang="en"/>
+    
+      <loc>https://codle.net/publication_types/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://codle.net/tags/pytorch/</loc>
+      <lastmod>2017-12-11T16:48:54+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://codle.net/categories/pytorch/</loc>
+      <lastmod>2017-12-11T16:48:54+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <xhtml:link rel="alternate" href="https://codle.net/tags/" hreflang="zh"/>
+      <xhtml:link rel="alternate" href="https://codle.net/en/tags/" hreflang="en"/>
+    
+      <loc>https://codle.net/tags/</loc>
+      <lastmod>2017-12-11T16:48:54+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+</urlset>

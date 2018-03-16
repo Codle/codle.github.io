@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+    
+    
+    <url>
+    
+      <xhtml:link rel="alternate" href="https://codle.net/en/categories/" hreflang="en"/>
+      <xhtml:link rel="alternate" href="https://codle.net/categories/" hreflang="zh"/>
+    
+      <loc>https://codle.net/en/categories/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <xhtml:link rel="alternate" href="https://codle.net/en/" hreflang="en"/>
+      <xhtml:link rel="alternate" href="https://codle.net/" hreflang="zh"/>
+    
+      <loc>https://codle.net/en/</loc>
+      <lastmod>2016-04-20T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <xhtml:link rel="alternate" href="https://codle.net/en/publication_types/" hreflang="en"/>
+      <xhtml:link rel="alternate" href="https://codle.net/publication_types/" hreflang="zh"/>
+    
+      <loc>https://codle.net/en/publication_types/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <xhtml:link rel="alternate" href="https://codle.net/en/tags/" hreflang="en"/>
+      <xhtml:link rel="alternate" href="https://codle.net/tags/" hreflang="zh"/>
+    
+      <loc>https://codle.net/en/tags/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+</urlset>
