@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>https://codle.net/post/recommend-books/</loc>
+      <lastmod>2018-03-17T18:06:01+08:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://codle.net/post/how-to-deal-with-variable-length-sequences-in-pytorch/</loc>
       <lastmod>2018-03-16T16:21:08+08:00</lastmod>
     </url>
@@ -68,6 +77,16 @@
     
     <url>
     
+      <loc>https://codle.net/tags/book/</loc>
+      <lastmod>2018-03-17T18:06:01+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <xhtml:link rel="alternate" href="https://codle.net/categories/" hreflang="zh"/>
       <xhtml:link rel="alternate" href="https://codle.net/en/categories/" hreflang="en"/>
     
@@ -85,6 +104,16 @@
     
       <loc>https://codle.net/</loc>
       <lastmod>2016-04-20T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://codle.net/tags/machine-learning/</loc>
+      <lastmod>2018-03-17T18:06:01+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -135,6 +164,16 @@
     
     <url>
     
+      <loc>https://codle.net/tags/python/</loc>
+      <lastmod>2018-03-17T18:06:01+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://codle.net/tags/sentiment-analysis/</loc>
       <lastmod>2018-03-16T13:51:00+08:00</lastmod>
       <priority>0</priority>
@@ -149,7 +188,17 @@
       <xhtml:link rel="alternate" href="https://codle.net/en/tags/" hreflang="en"/>
     
       <loc>https://codle.net/tags/</loc>
-      <lastmod>2018-03-16T16:21:08+08:00</lastmod>
+      <lastmod>2018-03-17T18:06:01+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://codle.net/tags/video/</loc>
+      <lastmod>2018-03-17T18:06:01+08:00</lastmod>
       <priority>0</priority>
     </url>
     

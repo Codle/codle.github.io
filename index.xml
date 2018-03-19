@@ -10,6 +10,68 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>推荐读物</title>
+      <link>https://codle.net/post/recommend-books/</link>
+      <pubDate>Sat, 17 Mar 2018 18:06:01 +0800</pubDate>
+      
+      <guid>https://codle.net/post/recommend-books/</guid>
+      <description>
+
+&lt;h2 id=&#34;python&#34;&gt;Python&lt;/h2&gt;
+
+&lt;p&gt;纯入门向推荐「简明 Python 教程」， 英文名「A Byte of Python」，是一本英文读物。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在线阅读：&lt;a href=&#34;https://python.swaroopch.com/&#34; target=&#34;_blank&#34;&gt;A Byte of Python&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;廖雪峰的 Python3 教程。在他的个人博客上，不仅介绍了基本的语法也有一些使用 Python 写的有趣的小项目。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;网站地址：&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000&#34; target=&#34;_blank&#34;&gt;Python3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Python 工具书籍类书籍：「Python Cookbook」，和「C++ Prime」类似，介绍了 Python 中的基本算法写法、模块写法等。内容太多，用到的时候查询即可。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;下载地址：&lt;a href=&#34;https://pan.baidu.com/s/1pL1cI9d&#34; target=&#34;_blank&#34;&gt;https://pan.baidu.com/s/1pL1cI9d&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;machine-learning&#34;&gt;Machine Learning&lt;/h2&gt;
+
+&lt;p&gt;吴恩达在斯坦福时期教授的课程的在线版本，也是 Coursera 平台起步阶段最热门的课程。每节课都有小作业，可以在线评分。数学代码使用使用 Ocatve ，一款开源的数学软件，和 Matlab 代码可以通用，也就是说使用 Matlab 或者 Ocatve 都可以完成作业。&lt;/p&gt;
+
+&lt;p&gt;课程相比于斯坦福的本科生版本有所删减，难度降低了，追求更高层次的可以去网易公开课看本科教室录制的&lt;a href=&#34;http://open.163.com/special/opencourse/machinelearning.html&#34; target=&#34;_blank&#34;&gt;斯坦福 cs229&lt;/a&gt; 。&lt;/p&gt;
+
+&lt;p&gt;课程地址：&lt;a href=&#34;https://www.coursera.org/learn/machine-learning&#34; target=&#34;_blank&#34;&gt;旁听免费&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;除了 Coursera 平台的机器学习课程，台湾大学的林轩田教授的两门课程也是非常值得一看的，且全部使用的国语讲述。&lt;/p&gt;
+
+&lt;p&gt;课程地址：
++ &lt;a href=&#34;https://www.bilibili.com/video/av12463015/&#34; target=&#34;_blank&#34;&gt;机器学习基石(B站源)&lt;/a&gt;
++ &lt;a href=&#34;https://www.bilibili.com/video/av12469267&#34; target=&#34;_blank&#34;&gt;机器学习技法(B站源)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;deep-learning&#34;&gt;Deep Learning&lt;/h2&gt;
+
+&lt;p&gt;吴恩达创业项目 deeplearning.ai 的课程，较短偏向于工程应用，很多公式都没有推导，适合入门，使用 TensorFlow 作为深度学习框架来布置作业。分为五个课程：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Neural Networks and Deep Learning&lt;/li&gt;
+&lt;li&gt;Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization&lt;/li&gt;
+&lt;li&gt;Structuring Machine Learning Projects&lt;/li&gt;
+&lt;li&gt;Convolutional Neural Networks&lt;/li&gt;
+&lt;li&gt;Sequence Models&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;课程地址：&lt;a href=&#34;https://www.coursera.org/specializations/deep-learning&#34; target=&#34;_blank&#34;&gt;旁听免费&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;吴恩达的课程部分字幕没有完全汉化，对英语有难度的还可以选择台湾大学李宏毅的深度学习课程，也是全程国语，但是相对于吴恩达的课程，少了很多在线练习的机会。&lt;/p&gt;
+
+&lt;p&gt;课程地址：&lt;a href=&#34;https://www.bilibili.com/video/av9770302&#34; target=&#34;_blank&#34;&gt;深度学习(2017)(B站源)&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>PyTorch 中可变长序列的处理</title>
       <link>https://codle.net/post/how-to-deal-with-variable-length-sequences-in-pytorch/</link>
       <pubDate>Fri, 16 Mar 2018 16:21:08 +0800</pubDate>
