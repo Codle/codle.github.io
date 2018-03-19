@@ -17,6 +17,8 @@
       <guid>https://codle.net/post/recommend-books/</guid>
       <description>
 
+&lt;p&gt;分享一些平时看过的觉得还不错的书籍、在线课程，主要是计算机专业方向的推荐读物。还在补充中，有好的推荐也可以评论留言。&lt;/p&gt;
+
 &lt;h2 id=&#34;python&#34;&gt;Python&lt;/h2&gt;
 
 &lt;p&gt;纯入门向推荐「简明 Python 教程」， 英文名「A Byte of Python」，是一本英文读物。&lt;/p&gt;
@@ -47,9 +49,12 @@
 
 &lt;p&gt;除了 Coursera 平台的机器学习课程，台湾大学的林轩田教授的两门课程也是非常值得一看的，且全部使用的国语讲述。&lt;/p&gt;
 
-&lt;p&gt;课程地址：
-+ &lt;a href=&#34;https://www.bilibili.com/video/av12463015/&#34; target=&#34;_blank&#34;&gt;机器学习基石(B站源)&lt;/a&gt;
-+ &lt;a href=&#34;https://www.bilibili.com/video/av12469267&#34; target=&#34;_blank&#34;&gt;机器学习技法(B站源)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;课程地址：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bilibili.com/video/av12463015/&#34; target=&#34;_blank&#34;&gt;机器学习基石(B站源)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bilibili.com/video/av12469267&#34; target=&#34;_blank&#34;&gt;机器学习技法(B站源)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&#34;deep-learning&#34;&gt;Deep Learning&lt;/h2&gt;
 
