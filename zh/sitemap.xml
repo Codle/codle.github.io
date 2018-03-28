@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>https://codle.net/project/school2home/</loc>
+      <lastmod>2018-03-28T16:27:27+08:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://codle.net/post/recommend/</loc>
       <lastmod>2018-03-17T18:06:01+08:00</lastmod>
     </url>
@@ -112,6 +121,16 @@
     
     <url>
     
+      <loc>https://codle.net/tags/django/</loc>
+      <lastmod>2018-03-28T16:27:27+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://codle.net/tags/machine-learning/</loc>
       <lastmod>2018-03-17T18:06:01+08:00</lastmod>
       <priority>0</priority>
@@ -165,7 +184,27 @@
     <url>
     
       <loc>https://codle.net/tags/python/</loc>
-      <lastmod>2018-03-17T18:06:01+08:00</lastmod>
+      <lastmod>2018-03-28T16:27:27+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://codle.net/categories/react/</loc>
+      <lastmod>2018-03-28T16:27:27+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://codle.net/tags/react-native/</loc>
+      <lastmod>2018-03-28T16:27:27+08:00</lastmod>
       <priority>0</priority>
     </url>
     

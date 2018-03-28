@@ -12,7 +12,17 @@
     
     
     <item>
-      <title>情感分析</title>
+      <title>基于 React Native 的家校通 App</title>
+      <link>https://codle.net/project/school2home/</link>
+      <pubDate>Wed, 28 Mar 2018 16:27:27 +0800</pubDate>
+      
+      <guid>https://codle.net/project/school2home/</guid>
+      <description>介绍 XX
+项目环境  React Native 0.51 Django 2.0 Python 3.6  许可 MIT 协议</description>
+    </item>
+    
+    <item>
+      <title>面向中文文本的情感倾向分析</title>
       <link>https://codle.net/project/sentiment-ananalysis/</link>
       <pubDate>Fri, 16 Mar 2018 13:51:00 +0800</pubDate>
       

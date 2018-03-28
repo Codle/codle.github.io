@@ -10,6 +10,32 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>基于 React Native 的家校通 App</title>
+      <link>https://codle.net/project/school2home/</link>
+      <pubDate>Wed, 28 Mar 2018 16:27:27 +0800</pubDate>
+      
+      <guid>https://codle.net/project/school2home/</guid>
+      <description>
+
+&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
+
+&lt;p&gt;XX&lt;/p&gt;
+
+&lt;h2 id=&#34;项目环境&#34;&gt;项目环境&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;React Native 0.51&lt;/li&gt;
+&lt;li&gt;Django 2.0&lt;/li&gt;
+&lt;li&gt;Python 3.6&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;许可&#34;&gt;许可&lt;/h2&gt;
+
+&lt;p&gt;MIT 协议&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>推荐读物</title>
       <link>https://codle.net/post/recommend/</link>
       <pubDate>Sat, 17 Mar 2018 18:06:01 +0800</pubDate>
@@ -237,7 +263,7 @@
     </item>
     
     <item>
-      <title>情感分析</title>
+      <title>面向中文文本的情感倾向分析</title>
       <link>https://codle.net/project/sentiment-ananalysis/</link>
       <pubDate>Fri, 16 Mar 2018 13:51:00 +0800</pubDate>
       
